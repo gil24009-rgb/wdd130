@@ -1,0 +1,33 @@
+<svg width="800" height="240" viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Silver Creek Rafting Co.">
+  <defs>
+    <style>
+      .bg { fill: #FFFFFF; }
+      .primary { fill: #0B6E99; }
+      .accent { fill: #A43312; }
+      .text { fill: #111827; font-family: Montserrat, Arial, sans-serif; font-weight: 800; }
+      .sub  { fill: #111827; font-family: Merriweather, Georgia, serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- 배경 -->
+  <rect class="bg" x="0" y="0" width="800" height="240" rx="16" />
+
+  <!-- 워드마크 (파도 위로 띄움) -->
+  <text class="text" x="40" y="102" font-size="48" letter-spacing="1">SILVER CREEK</text>
+  <text class="sub"  x="40" y="142" font-size="28">RAFTING CO.</text>
+
+  <!-- 파도 (하단 배치) -->
+  <path class="primary"
+        d="M30,190
+           C110,170 130,210 200,195
+           C270,185 300,215 380,195
+           C460,175 500,220 570,195
+           C630,182 680,212 740,195
+           L740,240 L30,240 Z" />
+
+  <!-- 패들 (파도와 겹치도록 하단 이동) -->
+  <g transform="translate(600,140) rotate(-25)">
+    <rect class="accent" x="-6" y="0" width="12" height="110" rx="4"/>
+    <ellipse class="accent" cx="0" cy="118" rx="22" ry="28"/>
+  </g>
+</svg>
