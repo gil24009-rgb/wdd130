@@ -1,5 +1,5 @@
 /* =========================================================
-   Silver Creek Rafting Co. — styles/style.css (Final)
+   Silver Creek Rafting Co. — styles/style.css (Final, fixed)
    Palette:
    Primary   #0B6E99
    Secondary #E7C24F
@@ -30,8 +30,8 @@ a { color: inherit; }
 
 /* ---------- Page Container ---------- */
 #content{
-  max-width: 1600px;  /* rubric: max-width for page */
-  margin: 0 auto;     /* rubric: center the page */
+  max-width: 1600px;   /* rubric: max-width for page */
+  margin: 0 auto;      /* rubric: center the page */
 }
 
 /* ---------- Base Typography & Body ---------- */
@@ -56,6 +56,8 @@ header{
   grid-template-columns: auto 1fr;
   gap: 1rem;
   align-items: center;
+  position: relative;
+  z-index: 3; /* ensure header stays above hero if overlapping */
 }
 
 /* ---------- Logo ---------- */
@@ -85,7 +87,7 @@ nav a:hover{
 }
 
 /* ---------- Hero ---------- */
-#hero{ position: relative; }
+#hero{ position: relative; z-index: 1; }
 #hero-img{ width: 100%; }       /* rubric: hero image 100% */
 #hero-msg{
   position: absolute;
@@ -120,7 +122,7 @@ nav a:hover{
   transition: background-color .2s ease, color .2s ease, transform .1s ease;
 }
 .book:hover, .join:hover{
-  background-color: var(--accent);  /* stronger hover contrast */
+  background-color: var(--accent);
   color: var(--light);
   transform: translateY(-1px);
 }
@@ -131,18 +133,21 @@ nav a:hover{
 .rivers-card, .camping-card, .rapids-card{ padding: 2rem 1rem; }
 
 /* ---------- Background band (behind message) ---------- */
-/* Adjusted color for stronger separation from msg card */
 #background{
   height: 725px;                 /* rubric */
-  background-color: #CFE8F3;     /* darker sky tint for clearer band */
+  background-color: #CFE8F3;     /* clearer band */
+  position: relative;
+  z-index: 0;
 }
 
-/* ---------- Message Section (fixed for legibility) ---------- */
+/* ---------- Message Section (legibility & stacking fixed) ---------- */
 .msg{
-  background-color: #FFFFFF;     /* now fully opaque for contrast */
+  position: relative;
+  z-index: 2;                    /* sit ABOVE mountains image */
+  background-color: #FFFFFF;     /* fully opaque for contrast */
   color: var(--dark);
   max-width: 60ch;
-  margin: -450px auto 3rem;      /* reduced overlap (-600px -> -450px) */
+  margin: -420px auto 2.5rem;    /* reduced overlap for better spacing */
   padding: 1.25rem 1.5rem;
   border-radius: .75rem;
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
@@ -154,22 +159,32 @@ nav a:hover{
   font-weight: 800;
 }
 .msg p{
-  color: var(--primary);         /* improved readability & brand consistency */
+  color: var(--primary);         /* brand-consistent readable text */
   margin-bottom: 1rem;
 }
 
 /* ---------- Main sections centering ---------- */
 main section{ text-align: center; } /* rubric */
 
-/* ---------- Mountains image ---------- */
-.mountains{ margin: 0 auto; border-radius: .5rem; }
+/* ---------- Mountains image (underlap control) ---------- */
+.mountains{
+  position: relative;
+  z-index: 1;                    /* below .msg (z=2), above #background (z=0) */
+  margin: 0 auto 2rem;           /* bottom space so footer doesn't crowd */
+  border-radius: .5rem;
+  display: block;
+  width: 100%;
+}
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (clear separation from mountains) ---------- */
 footer{
+  position: relative;
+  z-index: 3;                    /* ensure footer sits above any preceding content */
   background-color: var(--dark); /* rubric: footer bg */
   color: var(--light);           /* rubric: footer fg */
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem;            /* a bit more padding for breathing room */
+  box-shadow: 0 -6px 20px rgba(0,0,0,.08); /* subtle top shadow for separation */
 }
 footer p{
   font-size: 1.2em;              /* rubric: larger footer text */
@@ -190,7 +205,7 @@ footer p a:hover{ text-decoration: underline; } /* rubric */
 }
 .social img{ width: 32px; height: 32px; }
 
-/* ---------- Explicit rubric selectors (redundant but explicit) ---------- */
+/* ---------- Explicit rubric selectors (kept for grading) ---------- */
 nav a{ text-align: center; }
 #hero-msg h1, #hero-msg h4{ text-align: center; }
 .button-box{ text-align: center; }
@@ -209,5 +224,5 @@ a:focus-visible, button:focus-visible{
     justify-items: center;
   }
   nav{ row-gap: .5rem; }
-  .msg{ margin: -470px 1rem 2rem; }
+  .msg{ margin: -440px 1rem 2rem; }
 }
