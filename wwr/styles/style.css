@@ -1,0 +1,254 @@
+/* =========================================================
+   Silver Creek Rafting Co. — styles/style.css
+   Palette (from Site Plan):
+   Primary:   #0B6E99
+   Secondary: #E7C24F
+   Accent:    #A43312
+   Dark:      #111827
+   Light:     #FFFFFF
+   Fonts (Site Plan): Montserrat (headings), Merriweather (paragraphs)
+   ========================================================= */
+
+/* Optional: Load Google Fonts (allowed in course; remove if not desired) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Montserrat:wght@600;700;800&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root{
+  --primary:   #0B6E99;
+  --secondary: #E7C24F;
+  --accent:    #A43312;
+  --dark:      #111827;
+  --light:     #FFFFFF;
+
+  --bg-base:   #F9FAFB; /* light off-white for body background */
+  --text-base: #1F2937; /* slate-ish dark text for readability */
+}
+
+/* ---------- Minimal Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+
+/* ---------- Page Container (Assignment: max-width + centering) ---------- */
+#content{
+  max-width: 1600px;     /* requirement: set max-width for the entire page */
+  margin: 0 auto;        /* requirement: center the page on large screens */
+}
+
+/* ---------- Base Typography & Body ---------- */
+html, body {
+  height: 100%;
+}
+body{
+  font-family: "Merriweather", Georgia, serif; /* Site Plan: paragraph font */
+  color: var(--text-base);
+  background-color: var(--bg-base);            /* requirement: background-color on body */
+  line-height: 1.65;
+}
+
+/* Headings use Montserrat per Site Plan */
+h1, h2, h3, h4, h5, h6{
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--dark);
+}
+
+/* ---------- Header ---------- */
+header{
+  /* requirement: header background-color (rgba to allow hero bleed-through later) */
+  background-color: rgba(17, 24, 39, 0.75); /* based on --dark */
+  color: var(--light);
+  padding: 1rem 1.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ---------- Logo / Branding ---------- */
+#logo_link { display: inline-flex; align-items: center; }
+.logo{
+  width: 80px; /* requirement: logo width 80px */
+}
+
+/* ---------- Navigation ---------- */
+nav{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+nav a{
+  /* requirement: text-align center; remove underline; foreground color */
+  text-align: center;
+  text-decoration: none;
+  color: var(--light);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: background-color .2s ease, color .2s ease, transform .1s ease;
+}
+nav a:hover{
+  /* requirement: nav a:hover background + color */
+  background-color: var(--accent);
+  color: var(--light);
+  transform: translateY(-1px);
+}
+
+/* ---------- Hero ---------- */
+#hero{
+  position: relative;
+}
+#hero-box{
+  /* container for hero image if needed later */
+}
+#hero-img{
+  width: 100%; /* requirement: hero image width 100% */
+  /* optional: maintain aspect, already default via img rules */
+}
+#hero-msg{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: .5rem;
+  text-align: center; /* requirement: #hero-msg h1, #hero-msg h4 centered (parent OK) */
+  padding: 1rem;
+}
+.home-title{
+  color: var(--light);  /* requirement: foreground color */
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+#hero-msg h4{
+  color: var(--light);  /* requirement: foreground color */
+  font-weight: 600;
+}
+
+/* ---------- CTA Buttons ---------- */
+.button-box{
+  text-align: center; /* requirement: .button-box centered */
+}
+.book, .join{
+  display: inline-block;
+  background-color: var(--primary); /* requirement: background-color on .book, .join */
+  color: var(--light);               /* requirement: foreground color */
+  text-decoration: none;             /* requirement: remove underline on .book, .join */
+  padding: .65rem 1rem;
+  border-radius: .65rem;
+  font-weight: 700;
+  transition: background-color .2s ease, color .2s ease, transform .1s ease;
+}
+.book:hover, .join:hover{
+  background-color: var(--dark);     /* requirement: hover background */
+  color: var(--secondary);           /* requirement: hover foreground */
+  transform: translateY(-1px);
+}
+
+/* ---------- Cards / Icons ---------- */
+.icon{
+  width: 80px; /* requirement: icon width 80px */
+  margin: .5rem auto 0;
+}
+.card-img{
+  max-width: 520px;
+  margin: 0 auto 1rem;
+  border-radius: .5rem;
+}
+.rivers-card, .camping-card, .rapids-card{
+  padding: 2rem 1rem;
+}
+
+/* ---------- Background block for message (empty div) ---------- */
+/* requirement: add a rule targeting #background with height: 725px; + background-color */
+#background{
+  height: 725px;
+  background-color: #EAF3F8; /* subtle light tint; can keep or adjust */
+}
+
+/* ---------- Message Section ---------- */
+.msg{
+  background-color: var(--light);  /* requirement: background-color on .msg */
+  color: var(--dark);              /* requirement: foreground on .msg */
+  max-width: 60ch;
+  margin: -600px auto 3rem;        /* visually overlap #background (layout will improve later) */
+  padding: 1.25rem 1.5rem;
+  border-radius: .75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  text-align: center;
+}
+.msg h2{
+  color: var(--primary);           /* requirement: .msg h2 color */
+  margin-bottom: .5rem;
+  font-weight: 800;
+}
+.msg p{
+  color: var(--dark);              /* requirement: .msg p color */
+  margin-bottom: 1rem;
+}
+
+/* ---------- Main sections centering ---------- */
+/* requirement: main section { text-align:center } */
+main section{
+  text-align: center;
+}
+
+/* ---------- Mountains image (optional presentation) ---------- */
+.mountains{
+  margin: 0 auto;
+  border-radius: .5rem;
+}
+
+/* ---------- Footer ---------- */
+footer{
+  background-color: var(--dark);  /* requirement: footer background-color */
+  color: var(--light);            /* requirement: footer foreground */
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+footer p{
+  font-size: 1.2em;               /* requirement: larger footer text */
+  margin-bottom: .75rem;
+}
+footer a{
+  color: var(--secondary);        /* requirement: footer link color */
+  text-decoration: none;          /* requirement: remove underline on footer a */
+}
+footer p a:hover{
+  text-decoration: underline;     /* requirement: underline on footer p a:hover */
+}
+
+/* Social icons in footer (from markup .social wrapper) */
+.social{
+  display: inline-flex;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+}
+.social img{
+  width: 32px;
+  height: 32px;
+}
+
+/* ---------- Course-required centering selectors (explicit) ---------- */
+/* These ensure the rubric selectors exist exactly as requested. */
+nav a{ text-align: center; }
+#hero-msg h1, #hero-msg h4{ text-align: center; }
+.button-box{ text-align: center; }
+main section{ text-align: center; }
+
+/* ---------- Link States & Accessibility ---------- */
+a:focus-visible, button:focus-visible{
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* ---------- Small screens (optional niceties) ---------- */
+@media (max-width: 640px){
+  header{
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  nav{ row-gap: .5rem; }
+  .msg{ margin: -620px 1rem 2rem; }
+}
