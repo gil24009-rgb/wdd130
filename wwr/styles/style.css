@@ -1,228 +1,156 @@
-/* =========================================================
-   Silver Creek Rafting Co. — styles/style.css (Final, fixed)
-   Palette:
-   Primary   #0B6E99
-   Secondary #E7C24F
-   Accent    #A43312
-   Dark      #111827
-   Light     #FFFFFF
-   Fonts: Montserrat (headings), Merriweather (paragraphs)
-   ========================================================= */
+/* ===========================
+   W05: Fonts & Spacing
+   - Google Fonts + fallbacks
+   - Simple reset (body, h2)
+   - Font sizes (body 22px, headlines 2em, etc.)
+   - Padding & Margins (per instructions)
+   - Borders, Radius, Box-sizing
+   =========================== */
 
+/* Fonts (headlines: Montserrat; body: Merriweather) */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Montserrat:wght@600;700;800&display=swap');
 
-/* ---------- Variables ---------- */
-:root{
-  --primary:   #0B6E99;
-  --secondary: #E7C24F;
-  --accent:    #A43312;
-  --dark:      #111827;
-  --light:     #FFFFFF;
+/* --- Simple Reset (explicit per assignment) --- */
+body { margin: 0; padding: 0; }
+h2 { margin: 0; }
 
-  --bg-base:   #F9FAFB;
-  --text-base: #1F2937;
-}
-
-/* ---------- Minimal Reset ---------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; }
-
-/* ---------- Page Container ---------- */
-#content{
-  max-width: 1600px;   /* rubric: max-width for page */
-  margin: 0 auto;      /* rubric: center the page */
-}
-
-/* ---------- Base Typography & Body ---------- */
+/* --- Base page --- */
 html, body { height: 100%; }
+#content { max-width: 1600px; margin: 0 auto; }
+
 body{
-  font-family: "Merriweather", Georgia, serif;
-  color: var(--text-base);
-  background-color: var(--bg-base); /* rubric: body background */
+  background-color: #fcfbfb;
+  font-family: "Merriweather", Georgia, serif;         /* body font + fallbacks */
+  font-size: 22px;                                     /* required */
   line-height: 1.65;
-}
-h1, h2, h3, h4, h5, h6{
-  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: var(--dark);
+  color: #1f2937;
 }
 
-/* ---------- Header ---------- */
+h1, h2, h3, h4, h5, h6{
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* headline font + fallbacks */
+  color: #111827;
+}
+
+/* --- Header & Nav --- */
 header{
-  background-color: rgba(17, 24, 39, 0.75); /* semi-transparent dark */
-  color: var(--light);
-  padding: 1rem 1.25rem;
+  background-color: rgba(17,24,39,.85);
+  color: #fff;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem;
   align-items: center;
-  position: relative;
-  z-index: 3; /* ensure header stays above hero if overlapping */
+  gap: 1rem;
+  padding: 1rem 1.25rem;
 }
 
-/* ---------- Logo ---------- */
-#logo_link { display: inline-flex; align-items: center; }
-.logo{ width: 80px; }           /* rubric: 80px logo */
+#logo_link{ padding-top: 5px; }           /* padding requirement */
+.logo{ width: 80px; }
 
-/* ---------- Navigation ---------- */
 nav{
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
+  gap: 0;                                  /* we’ll rely on link padding below */
 }
 nav a{
-  text-align: center;           /* rubric */
-  text-decoration: none;        /* rubric */
-  color: var(--light);          /* rubric */
-  padding: .5rem .75rem;
-  border-radius: .5rem;
-  transition: background-color .2s ease, color .2s ease, transform .1s ease;
+  text-decoration: none;
+  color: #fcfbfb;
+  text-align: center;
+  padding: 35px;                           /* padding requirement */
+  display: inline-block;
 }
-nav a:hover{
-  background-color: var(--accent); /* rubric: hover background */
-  color: var(--light);              /* rubric: hover color */
-  transform: translateY(-1px);
-}
+nav a:hover{ background:#a43312; color:#fff; }
 
-/* ---------- Hero ---------- */
-#hero{ position: relative; z-index: 1; }
-#hero-img{ width: 100%; }       /* rubric: hero image 100% */
+/* --- Hero --- */
+#hero{ position: relative; }
+#hero-img{ width: 100%; display: block; }
 #hero-msg{
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  gap: .5rem;
-  text-align: center;           /* rubric: #hero-msg h1, h4 centered */
+  position: absolute; inset: 0;
+  display: grid; place-content: center; text-align: center;
   padding: 1rem;
 }
+
 .home-title{
-  color: var(--light);          /* rubric: foreground color */
-  font-weight: 800;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2em;                          /* required: 2x body size */
+  margin-top: 10px;                        /* margin requirement */
+  color: #ffffff;
   text-shadow: 0 1px 2px rgba(0,0,0,.35);
 }
-#hero-msg h4{
-  color: var(--light);
-  font-weight: 600;
-}
+#hero-msg h4{ color:#ffffff; }
 
-/* ---------- CTA Buttons ---------- */
-.button-box{ text-align: center; } /* rubric */
+/* --- Buttons --- */
+.button-box{ text-align: center; }
 .book, .join{
+  background-color: #d9c2a3;
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;                         /* required */
+  padding: 15px 30px;                      /* padding requirement */
+  margin-top: 50px;                        /* margin requirement */
+  border-radius: 5px;                      /* required */
   display: inline-block;
-  background-color: var(--primary); /* rubric: background */
-  color: var(--light);               /* rubric: color */
-  text-decoration: none;             /* rubric: no underline */
-  padding: .65rem 1rem;
-  border-radius: .65rem;
-  font-weight: 700;
-  transition: background-color .2s ease, color .2s ease, transform .1s ease;
 }
-.book:hover, .join:hover{
-  background-color: var(--accent);
-  color: var(--light);
-  transform: translateY(-1px);
-}
+.book:hover, .join:hover{ background:#a43312; color:#fff; }
 
-/* ---------- Cards / Icons ---------- */
-.icon{ width: 80px; margin: .5rem auto 0; } /* rubric: 80px icons */
-.card-img{ max-width: 520px; margin: 0 auto 1rem; border-radius: .5rem; }
-.rivers-card, .camping-card, .rapids-card{ padding: 2rem 1rem; }
+/* --- Cards & imagery --- */
+.home-grid section{ text-align: center; }
+.rivers-card, .camping-card, .rapids-card{ margin: 200px 0; } /* margin requirement */
 
-/* ---------- Background band (behind message) ---------- */
-#background{
-  height: 725px;                 /* rubric */
-  background-color: #CFE8F3;     /* clearer band */
-  position: relative;
-  z-index: 0;
-}
-
-/* ---------- Message Section (legibility & stacking fixed) ---------- */
-.msg{
-  position: relative;
-  z-index: 2;                    /* sit ABOVE mountains image */
-  background-color: #FFFFFF;     /* fully opaque for contrast */
-  color: var(--dark);
-  max-width: 60ch;
-  margin: -420px auto 2.5rem;    /* reduced overlap for better spacing */
-  padding: 1.25rem 1.5rem;
-  border-radius: .75rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  text-align: center;
-}
-.msg h2{
-  color: var(--primary);
-  margin-bottom: .5rem;
-  font-weight: 800;
-}
-.msg p{
-  color: var(--primary);         /* brand-consistent readable text */
-  margin-bottom: 1rem;
-}
-
-/* ---------- Main sections centering ---------- */
-main section{ text-align: center; } /* rubric */
-
-/* ---------- Mountains image (underlap control) ---------- */
-.mountains{
-  position: relative;
-  z-index: 1;                    /* below .msg (z=2), above #background (z=0) */
-  margin: 0 auto 2rem;           /* bottom space so footer doesn't crowd */
+.card-img{
+  border: 10px solid #d9c2a3;              /* required border */
   border-radius: .5rem;
   display: block;
-  width: 100%;
+  margin: 0 auto 1rem;
 }
 
-/* ---------- Footer (clear separation from mountains) ---------- */
-footer{
-  position: relative;
-  z-index: 3;                    /* ensure footer sits above any preceding content */
-  background-color: var(--dark); /* rubric: footer bg */
-  color: var(--light);           /* rubric: footer fg */
+/* Box sizing on section images (required) */
+main section img{ box-sizing: border-box; }
+
+/* Icons & spacing */
+.icon{ padding-top: 10px; width: 80px; margin: 0 auto; }
+
+/* Background band and mountains (simple styles kept) */
+#background{ height: 725px; background:#CFE8F3; }
+.mountains{ display:block; width:100%; border-radius:.5rem; }
+
+/* --- Message section --- */
+.msg{
+  background-color: #6f7364;
+  color: #ffffff;
+  line-height: 1.5em;                      /* required */
+  padding: 35px;                            /* padding requirement */
+  max-width: 60ch;
+  margin: 2rem auto;
+  border-radius: .75rem;
   text-align: center;
-  padding: 2rem 1rem;            /* a bit more padding for breathing room */
-  box-shadow: 0 -6px 20px rgba(0,0,0,.08); /* subtle top shadow for separation */
 }
-footer p{
-  font-size: 1.2em;              /* rubric: larger footer text */
-  margin-bottom: .75rem;
+.msg p{
+  font-size: .8em;                          /* required */
+  padding-bottom: 15px;                      /* padding requirement */
 }
-footer a{
-  color: var(--secondary);       /* rubric: footer link color */
-  text-decoration: none;         /* rubric: remove underline */
-}
-footer p a:hover{ text-decoration: underline; } /* rubric */
 
-/* Footer social icons row */
-.social{
+/* --- Footer --- */
+footer{
+  background:#111827;
+  color:#ffffff;
+  text-align:center;
+  padding: 25px 50px;                        /* padding requirement */
+  margin-top: 200px;                          /* margin requirement */
+}
+footer a{ color:#E7C24F; text-decoration:none; }
+footer a:hover{ text-decoration: underline; }
+
+footer .social{
   display: inline-flex;
   gap: .5rem;
-  justify-content: center;
   align-items: center;
 }
-.social img{ width: 32px; height: 32px; }
+footer .social img{ width:32px; height:32px; padding-top: 15px; } /* padding requirement */
 
-/* ---------- Explicit rubric selectors (kept for grading) ---------- */
-nav a{ text-align: center; }
-#hero-msg h1, #hero-msg h4{ text-align: center; }
-.button-box{ text-align: center; }
-main section{ text-align: center; }
+/* --- Accessibility focus --- */
+a:focus-visible{ outline:3px solid #E7C24F; outline-offset:2px; }
 
-/* ---------- Focus styles ---------- */
-a:focus-visible, button:focus-visible{
-  outline: 3px solid var(--secondary);
-  outline-offset: 2px;
-}
-
-/* ---------- Small screens ---------- */
+/* --- Small screens --- */
 @media (max-width: 640px){
-  header{
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-  nav{ row-gap: .5rem; }
-  .msg{ margin: -440px 1rem 2rem; }
+  header{ grid-template-columns: 1fr; justify-items: center; }
 }
