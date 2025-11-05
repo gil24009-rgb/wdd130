@@ -1,142 +1,236 @@
 /* ===========================
-   W05: Fonts & Spacing
-   - Google Fonts + fallbacks
-   - Simple reset (body, h2)
-   - Font sizes (body 22px, headlines 2em, etc.)
-   - Padding & Margins (per instructions)
-   - Borders, Radius, Box-sizing
+   W05: Fonts & Spacing (updated for grid layout)
    =========================== */
 
 /* Fonts (headlines: Montserrat; body: Merriweather) */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Montserrat:wght@600;700;800&display=swap');
 
-/* --- Simple Reset (explicit per assignment) --- */
+/* --- Simple Reset --- */
+* { box-sizing: border-box; }
 body { margin: 0; padding: 0; }
 h2 { margin: 0; }
 
 /* --- Base page --- */
 html, body { height: 100%; }
-#content { max-width: 1600px; margin: 0 auto; }
+#content { max-width: 1600px; margin: 0 auto; padding: 0 1rem; }
 
 body{
   background-color: #fcfbfb;
-  font-family: "Merriweather", Georgia, serif;         /* body font + fallbacks */
-  font-size: 22px;                                     /* required */
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 22px;
   line-height: 1.65;
   color: #1f2937;
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* headline font + fallbacks */
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   color: #111827;
 }
 
-/* --- Header & Nav --- */
+/* ===========================
+   Header Grid + Nav (two-column grid)
+   =========================== */
 header{
   background-color: rgba(17,24,39,.85);
   color: #fff;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 150px auto; /* logo 150px, nav fills rest */
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.25rem;
 }
 
-#logo_link{ padding-top: 5px; }           /* padding requirement */
+/* center logo in its grid cell */
+#logo_link{
+  padding-top: 5px;
+  justify-self: center;
+  align-self: center;
+}
 .logo{ width: 80px; }
 
+/* nav uses flexbox */
 nav{
   display: flex;
-  justify-content: center;
+  justify-content: space-around; /* space around as required */
+  align-items: center;
+  gap: 0;
   flex-wrap: wrap;
-  gap: 0;                                  /* we’ll rely on link padding below */
 }
 nav a{
   text-decoration: none;
   color: #fcfbfb;
   text-align: center;
-  padding: 35px;                           /* padding requirement */
+  padding: 35px; /* padding requirement */
   display: inline-block;
 }
 nav a:hover{ background:#a43312; color:#fff; }
 
-/* --- Hero --- */
-#hero{ position: relative; }
+/* ===========================
+   Hero Grid (3-column grid; overlap nav if desired)
+   =========================== */
+#hero{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  margin-top: -100px; /* overlap nav by 100px (per assignment) */
+  position: relative;
+}
+
+/* hero image box spans the whole grid and is moved to back */
+#hero-box {
+  grid-column: 1 / 4;
+  grid-row: 1 / 3;
+  z-index: -1;
+}
 #hero-img{ width: 100%; display: block; }
-#hero-msg{
-  position: absolute; inset: 0;
-  display: grid; place-content: center; text-align: center;
+
+/* place hero message in center-right column near top */
+#hero-msg {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  margin-top: 100px; /* push down so it doesn't overlap nav */
+  display: grid;
+  place-items: start center;
+  text-align: center;
   padding: 1rem;
 }
 
+/* hero text styling */
 .home-title{
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  font-size: 2em;                          /* required: 2x body size */
-  margin-top: 10px;                        /* margin requirement */
+  font-size: 2em; /* required: 2x body size */
+  margin-top: 10px;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0,0,0,.35);
 }
-#hero-msg h4{ color:#ffffff; }
+#hero-msg h4{ color:#ffffff; margin: 0.25rem 0; }
 
-/* --- Buttons --- */
+/* Buttons */
 .button-box{ text-align: center; }
 .book, .join{
   background-color: #d9c2a3;
   color: #000;
   text-decoration: none;
-  font-size: 18px;                         /* required */
-  padding: 15px 30px;                      /* padding requirement */
-  margin-top: 50px;                        /* margin requirement */
-  border-radius: 5px;                      /* required */
+  font-size: 18px;
+  padding: 15px 30px;
+  margin-top: 50px;
+  border-radius: 5px;
   display: inline-block;
 }
 .book:hover, .join:hover{ background:#a43312; color:#fff; }
 
-/* --- Cards & imagery --- */
-.home-grid section{ text-align: center; }
-.rivers-card, .camping-card, .rapids-card{ margin: 200px 0; } /* margin requirement */
+/* ===========================
+   Main Grid (10 equal columns) — explicit placement of children
+   =========================== */
+.home-grid{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10 equal columns */
+  gap: 1rem;
+  /* allow implicit rows — heights will be determined by content */
+  align-items: start;
+  margin-top: 2rem;
+  position: relative;
+}
 
+/* ensure images in cards and mountains fill their grid area */
+.card-img, .mountains {
+  width: 100%;
+  display: block;
+}
+
+/* Card placements & spacing */
+/* .rivers-card from column lines 2–4 and row lines 2–3 */
+.rivers-card{
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+  text-align: center;
+  margin: 0; /* we will manage spacing by grid rows */
+}
+
+/* .camping-card from column lines 5–7 and row lines 2–3 */
+.camping-card{
+  grid-column: 5 / 7;
+  grid-row: 2 / 3;
+  text-align: center;
+  margin: 0;
+}
+
+/* .rapids-card from column lines 8–10 and row lines 2–3 */
+.rapids-card{
+  grid-column: 8 / 10;
+  grid-row: 2 / 3;
+  text-align: center;
+  margin: 0;
+}
+
+/* #background from column lines 1–11 and row lines 4–9 */
+#background{
+  grid-column: 1 / 11;
+  grid-row: 4 / 9;
+  background:#CFE8F3;
+  height: 725px; /* keep intended band height */
+  width: 100%;
+}
+
+/* .mountains from column lines 2–7 and row lines 5–8 */
+.mountains{
+  grid-column: 2 / 7;
+  grid-row: 5 / 8;
+  box-shadow: 5px 5px 10px #6f7364;
+  border-radius: .5rem;
+}
+
+/* .msg from column lines 6–10 and row lines 6–7 */
+.msg{
+  grid-column: 6 / 10;
+  grid-row: 6 / 7;
+  background-color: #6f7364;
+  color: #ffffff;
+  line-height: 1.5em;
+  padding: 35px;
+  box-shadow: 5px 5px 10px #6f7364;
+  border-radius: .75rem;
+  text-align: center;
+  max-width: none;
+}
+
+/* message paragraph sizing */
+.msg p{
+  font-size: .9em;
+  padding-bottom: 15px;
+  margin: 0;
+}
+
+/* icons & h2 placement inside cards */
+.icon{ padding-top: 10px; width: 80px; margin: 0 auto; }
+.home-grid section h2{ margin-top: .5rem; }
+
+/* --- Card image visual treatments & hover effect --- */
 .card-img{
-  border: 10px solid #d9c2a3;              /* required border */
+  border: 10px solid #d9c2a3;
   border-radius: .5rem;
   display: block;
   margin: 0 auto 1rem;
+  transition: transform .5s, opacity .5s;
+  box-shadow: 5px 5px 10px #6f7364;
+}
+.card-img:hover{
+  opacity: .6;
+  transform: scale(1.1);
 }
 
-/* Box sizing on section images (required) */
-main section img{ box-sizing: border-box; }
-
-/* Icons & spacing */
-.icon{ padding-top: 10px; width: 80px; margin: 0 auto; }
-
-/* Background band and mountains (simple styles kept) */
-#background{ height: 725px; background:#CFE8F3; }
-.mountains{ display:block; width:100%; border-radius:.5rem; }
-
-/* --- Message section --- */
-.msg{
-  background-color: #6f7364;
-  color: #ffffff;
-  line-height: 1.5em;                      /* required */
-  padding: 35px;                            /* padding requirement */
-  max-width: 60ch;
-  margin: 2rem auto;
-  border-radius: .75rem;
-  text-align: center;
-}
-.msg p{
-  font-size: .8em;                          /* required */
-  padding-bottom: 15px;                      /* padding requirement */
-}
-
-/* --- Footer --- */
+/* --- Footer: flexbox layout --- */
 footer{
   background:#111827;
   color:#ffffff;
   text-align:center;
-  padding: 25px 50px;                        /* padding requirement */
-  margin-top: 200px;                          /* margin requirement */
+  padding: 25px 50px;
+  margin-top: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
+footer p{ margin: 0.25rem 0; }
 footer a{ color:#E7C24F; text-decoration:none; }
 footer a:hover{ text-decoration: underline; }
 
@@ -145,12 +239,74 @@ footer .social{
   gap: .5rem;
   align-items: center;
 }
-footer .social img{ width:32px; height:32px; padding-top: 15px; } /* padding requirement */
+footer .social img{ width:32px; height:32px; padding-top: 15px; }
 
 /* --- Accessibility focus --- */
 a:focus-visible{ outline:3px solid #E7C24F; outline-offset:2px; }
 
-/* --- Small screens --- */
+/* ===========================
+   Responsive: max-width 900px (provided in assignment)
+   - placed at end so it overrides previous rules
+   =========================== */
+@media screen and (max-width: 900px) {
+  /* stack hero and main */
+  #hero, .home-grid {
+    display: block;
+    height: auto;
+  }
+
+  /* nav + footer become column oriented */
+  nav, footer {
+    flex-direction: column;
+  }
+
+  nav a {
+    display: block;
+    padding: 15px;
+  }
+
+  /* hero overlap removed for small screens */
+  #hero {
+    margin-top: 0;
+  }
+  #hero-msg {
+    margin-top: 0;
+  }
+  #hero-msg h4 {
+    display: none;
+  }
+  #hero-msg h1 {
+    color: #6f7364;
+  }
+  .home-title {
+    font-size: 25px;
+  }
+
+  /* Cards stack, become centered and narrower */
+  .rivers-card, .camping-card, .rapids-card {
+    margin: 50px auto;
+    width: 60%;
+  }
+
+  /* background band removed for smaller screens */
+  #background {
+    display: none;
+  }
+
+  /* mountains and message become block and centered */
+  .mountains, .msg {
+    width: 80%;
+    display: block;
+    margin: 0 auto 2rem;
+  }
+
+  footer {
+    margin-top: 25px;
+  }
+}
+
+/* Additional small-screen header handling for very small devices */
 @media (max-width: 640px){
-  header{ grid-template-columns: 1fr; justify-items: center; }
+  header{ grid-template-columns: 1fr; justify-items: center; padding: .75rem; }
+  #logo_link { justify-self: center; }
 }
