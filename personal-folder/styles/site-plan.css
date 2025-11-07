@@ -1,0 +1,141 @@
+/* If you change fonts, update the import (spaces -> +, separate with |) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  /* Portfolio palette (BYU–Idaho inspired) */
+  --primary-color: #006EB6;   /* BYUI Blue */
+  --secondary-color: #949598; /* Neutral Gray */
+  --accent1-color: #000000;   /* Black for strong contrast */
+  --accent2-color: #FFFFFF;   /* White */
+
+  /* Chosen fonts */
+  --heading-font: "Playfair Display", serif;
+  --paragraph-font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Derived usage colors */
+  --headline-color-on-white: var(--primary-color);
+  --headline-color-on-color: #FFFFFF;
+  --paragraph-color-on-white: #1b1d1f;
+  --paragraph-color-on-color: #FFFFFF;
+  --paragraph-background-color: var(--primary-color);
+
+  /* Nav colors */
+  --nav-link-color: var(--primary-color);
+  --nav-background-color: #E6F2FA;       /* light blue tint */
+  --nav-hover-link-color: #FFFFFF;
+  --nav-hover-background-color: var(--primary-color);
+}
+
+/* --- Template base (keep structure) --- */
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4em 1.5em;
+  font-size: 18px;
+  text-align: center;
+  background: #ffffff;
+}
+img { display: block; margin: 0 auto; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--headline-color-on-white);
+  letter-spacing: 0.2px;
+}
+h2 { text-align: center; }
+hr {
+  height: 3px;
+  margin: 35px 0;
+  background: var(--accent1-color);
+  border: 0;
+}
+header {
+  padding: 1.25em 1em;
+  text-align: center;
+  color: var(--headline-color-on-color);
+  background-color: var(--paragraph-background-color);
+}
+header > h1, header > h2 {
+  color: var(--headline-color-on-color);
+  margin: 0.15em 0;
+}
+
+p {
+  font-family: var(--paragraph-font);
+  color: var(--paragraph-color-on-white);
+  padding: 1em;
+  line-height: 1.65;
+}
+
+/* Color swatches table */
+.colors {
+  width: 100%;
+  min-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+.colors th { background-color: #e0e0e0; padding: 0.75em; }
+.colors td { width: 25%; height: 3em; }
+
+.primary   { background-color: var(--primary-color); }
+.secondary { background-color: var(--secondary-color); }
+.accent1   { background-color: var(--accent1-color); }
+.accent2   { background-color: var(--accent2-color); }
+
+p.colored {
+  background-color: var(--paragraph-background-color);
+  color: var(--paragraph-color-on-color);
+  border-radius: 10px;
+}
+
+/* Navigation preview */
+nav {
+  background-color: var(--nav-background-color);
+  line-height: 3em;
+  text-align: center;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 10px;
+}
+nav a {
+  padding: 10px 14px;
+  min-width: 120px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+nav a:link, nav a:visited { color: var(--nav-link-color); }
+nav a:hover {
+  color: var(--nav-hover-link-color);
+  background-color: var(--nav-hover-background-color);
+}
+
+/* Site map diagram */
+.sitemap {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(6, 15%);
+  grid-template-rows: 3em 1.5em 1.5em 3em;
+  grid-template-areas:
+    ". . home home . ."
+    ". . . top . ."
+    ". left left right right ."
+    "page2 page2 . . page3 page3";
+  gap: 0.5rem;
+}
+.sitemap > div { text-align: center; }
+.sm-home, .sm-page2, .sm-page3 {
+  background-color: #f1f3f5;
+  line-height: 3em;
+  border-radius: 8px;
+  border: 1px solid #e7e9ec;
+}
+.sm-home  { grid-area: home; }
+.sm-page2 { grid-area: page2; }
+.sm-page3 { grid-area: page3; }
+
+.top   { grid-area: top;   border-left: 1px solid #333; }
+.left  { grid-area: left;  border-top: 1px solid #333; border-left: 1px solid #333; }
+.right { grid-area: right; border-top: 1px solid #333; border-right: 1px solid #333; }
