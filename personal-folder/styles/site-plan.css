@@ -1,112 +1,116 @@
-/* If you change fonts, update the import (spaces -> +, separate with |) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
 
 :root {
-  /* Portfolio palette (BYU–Idaho inspired) */
-  --primary-color: #006EB6;   /* BYUI Blue */
-  --secondary-color: #949598; /* Neutral Gray */
-  --accent1-color: #000000;   /* Black for strong contrast */
-  --accent2-color: #FFFFFF;   /* White */
+  /* Warm Minimal Palette */
+  --slate-950: #0F172A;
+  --slate-700: #334155;
+  --slate-200: #E2E8F0;
+  --linen: #F8F5F2;
+  --coral-apricot: #FF7A59;
 
-  /* Chosen fonts */
-  --heading-font: "Playfair Display", serif;
-  --paragraph-font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Assign roles */
+  --primary-color: var(--slate-950);
+  --secondary-color: var(--slate-700);
+  --accent1-color: var(--coral-apricot);
+  --accent2-color: var(--linen);
 
-  /* Derived usage colors */
-  --headline-color-on-white: var(--primary-color);
-  --headline-color-on-color: #FFFFFF;
-  --paragraph-color-on-white: #1b1d1f;
-  --paragraph-color-on-color: #FFFFFF;
-  --paragraph-background-color: var(--primary-color);
+  /* Fonts */
+  --heading-font: "Plus Jakarta Sans", sans-serif;
+  --paragraph-font: "IBM Plex Sans", sans-serif;
 
-  /* Nav colors */
-  --nav-link-color: var(--primary-color);
-  --nav-background-color: #E6F2FA;       /* light blue tint */
-  --nav-hover-link-color: #FFFFFF;
-  --nav-hover-background-color: var(--primary-color);
+  /* Text & background roles */
+  --headline-color-on-white: var(--slate-950);
+  --headline-color-on-color: #ffffff;
+  --paragraph-color-on-white: var(--slate-700);
+  --paragraph-color-on-color: #ffffff;
+  --paragraph-background-color: var(--accent1-color);
+
+  /* Navigation */
+  --nav-link-color: var(--slate-950);
+  --nav-background-color: var(--linen);
+  --nav-hover-link-color: #ffffff;
+  --nav-hover-background-color: var(--accent1-color);
 }
 
-/* --- Template base (keep structure) --- */
+/* --- Base Layout --- */
 body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 4em 1.5em;
   font-size: 18px;
   text-align: center;
-  background: #ffffff;
+  background-color: var(--accent2-color);
 }
-img { display: block; margin: 0 auto; }
+
+header {
+  background-color: var(--primary-color);
+  color: var(--headline-color-on-color);
+  padding: 1.25em 1em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   color: var(--headline-color-on-white);
-  letter-spacing: 0.2px;
-}
-h2 { text-align: center; }
-hr {
-  height: 3px;
-  margin: 35px 0;
-  background: var(--accent1-color);
-  border: 0;
-}
-header {
-  padding: 1.25em 1em;
-  text-align: center;
-  color: var(--headline-color-on-color);
-  background-color: var(--paragraph-background-color);
-}
-header > h1, header > h2 {
-  color: var(--headline-color-on-color);
-  margin: 0.15em 0;
+  margin: 0.3em 0;
 }
 
 p {
   font-family: var(--paragraph-font);
   color: var(--paragraph-color-on-white);
   padding: 1em;
-  line-height: 1.65;
+  line-height: 1.7;
+  background-color: transparent;
 }
 
-/* Color swatches table */
+hr {
+  height: 3px;
+  border: 0;
+  background-color: var(--slate-700);
+  margin: 35px 0;
+}
+
+/* Color palette table */
 .colors {
   width: 100%;
-  min-width: 350px;
   margin: 30px auto;
-  text-align: center;
   border-collapse: collapse;
+  text-align: center;
 }
-.colors th { background-color: #e0e0e0; padding: 0.75em; }
-.colors td { width: 25%; height: 3em; }
-
-.primary   { background-color: var(--primary-color); }
-.secondary { background-color: var(--secondary-color); }
-.accent1   { background-color: var(--accent1-color); }
-.accent2   { background-color: var(--accent2-color); }
+.colors th {
+  background-color: var(--slate-200);
+  padding: 0.75em;
+}
+.colors td {
+  height: 3em;
+}
+.slate950 { background-color: var(--slate-950); }
+.slate700 { background-color: var(--slate-700); }
+.slate200 { background-color: var(--slate-200); }
+.linen    { background-color: var(--linen); }
+.coral    { background-color: var(--coral-apricot); }
 
 p.colored {
-  background-color: var(--paragraph-background-color);
+  background-color: var(--accent1-color);
   color: var(--paragraph-color-on-color);
   border-radius: 10px;
 }
 
-/* Navigation preview */
+/* Navigation */
 nav {
   background-color: var(--nav-background-color);
-  line-height: 3em;
-  text-align: center;
-  font-size: 1.1em;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.25rem;
   border-radius: 10px;
+  padding: 0.25rem;
 }
 nav a {
-  padding: 10px 14px;
-  min-width: 120px;
   text-decoration: none;
+  color: var(--nav-link-color);
+  padding: 10px 14px;
   border-radius: 8px;
+  font-weight: 500;
 }
-nav a:link, nav a:visited { color: var(--nav-link-color); }
 nav a:hover {
   color: var(--nav-hover-link-color);
   background-color: var(--nav-hover-background-color);
@@ -125,17 +129,19 @@ nav a:hover {
     "page2 page2 . . page3 page3";
   gap: 0.5rem;
 }
-.sitemap > div { text-align: center; }
+.sitemap > div {
+  text-align: center;
+}
 .sm-home, .sm-page2, .sm-page3 {
-  background-color: #f1f3f5;
+  background-color: var(--slate-200);
+  border: 1px solid var(--slate-700);
   line-height: 3em;
   border-radius: 8px;
-  border: 1px solid #e7e9ec;
 }
 .sm-home  { grid-area: home; }
 .sm-page2 { grid-area: page2; }
 .sm-page3 { grid-area: page3; }
 
-.top   { grid-area: top;   border-left: 1px solid #333; }
-.left  { grid-area: left;  border-top: 1px solid #333; border-left: 1px solid #333; }
-.right { grid-area: right; border-top: 1px solid #333; border-right: 1px solid #333; }
+.top   { grid-area: top;   border-left: 1px solid var(--slate-700); }
+.left  { grid-area: left;  border-top: 1px solid var(--slate-700); border-left: 1px solid var(--slate-700); }
+.right { grid-area: right; border-top: 1px solid var(--slate-700); border-right: 1px solid var(--slate-700); }
