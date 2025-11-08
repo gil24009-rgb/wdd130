@@ -69,11 +69,12 @@ hr {
   margin: 35px 0;
 }
 
-/* Color palette table */
+/* 🎨 Equal-width Color Palette */
 .colors {
   width: 100%;
   margin: 30px auto;
   border-collapse: collapse;
+  table-layout: fixed; /* ensures equal width */
   text-align: center;
 }
 .colors th {
@@ -81,17 +82,20 @@ hr {
   padding: 0.75em;
 }
 .colors td {
-  height: 3em;
+  height: 4em;
+  width: 20%; /* 1/5 each */
 }
+
 .slate950 { background-color: var(--slate-950); }
 .slate700 { background-color: var(--slate-700); }
 .slate200 { background-color: var(--slate-200); }
 .linen    { background-color: var(--linen); }
 .coral    { background-color: var(--coral-apricot); }
 
+/* 🩶 Updated colored paragraph example */
 p.colored {
-  background-color: var(--accent1-color);
-  color: var(--paragraph-color-on-color);
+  background-color: var(--slate-200);
+  color: var(--slate-950);
   border-radius: 10px;
 }
 
