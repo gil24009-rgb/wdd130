@@ -69,7 +69,7 @@ hr {
   margin: 35px 0;
 }
 
-/* 🎨 Equal-width Color Palette */
+/* Color Palette */
 .colors {
   width: 100%;
   margin: 30px auto;
@@ -92,7 +92,7 @@ hr {
 .linen    { background-color: var(--linen); }
 .coral    { background-color: var(--coral-apricot); }
 
-/* 🩶 Updated colored paragraph example */
+/* colored paragraph example */
 p.colored {
   background-color: var(--slate-200);
   color: var(--slate-950);
