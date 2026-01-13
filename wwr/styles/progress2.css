@@ -1,0 +1,125 @@
+body {
+  background-color: #fcfbfb;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#content {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: rgba(20, 30, 13, 0.7);
+}
+
+nav a {
+  text-align: center;
+  color: #fcfbfb;
+  text-decoration: none;
+  padding: 12px;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: #000000;
+  color: #d9c2a3;
+}
+
+#hero-msg h1,
+#hero-msg h4 {
+  text-align: center;
+}
+
+.button-box {
+  text-align: center;
+}
+
+main section {
+  text-align: center;
+}
+
+#background {
+  height: 725px;
+  background-color: #d9c2a3;
+}
+
+.book,
+.join {
+  background-color: #0f4f7e;
+  color: #fcfbfb;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.book:hover,
+.join:hover {
+  background-color: #d9c2a3;
+  color: #000000;
+}
+
+.msg {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 16px;
+}
+
+.home-title {
+  color: #000000;
+}
+
+h4 {
+  color: #000000;
+}
+
+.msg h2 {
+  color: #000000;
+}
+
+.msg p {
+  color: #000000;
+}
+
+footer {
+  background-color: rgba(20, 30, 13, 0.9);
+  color: #fcfbfb;
+  padding: 16px;
+}
+
+footer a {
+  color: #fcfbfb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #d9c2a3;
+}
+
+footer p {
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  width: 80px;
+}
+
+.icon {
+  width: 80px;
+}
+
+#hero-img {
+  width: 100%;
+}
+
+.social img {
+  width: 32px;
+  height: auto;
+}
