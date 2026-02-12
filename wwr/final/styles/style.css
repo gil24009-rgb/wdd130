@@ -436,7 +436,9 @@ nav a.is-current{
 
 /* options */
 .rivers-options{
-  margin-top: 2rem;
+  margin: 2rem auto 0;
+  max-width: 1100px; /* keeps section centered */
+  padding: 0 1rem;
 }
 
 .rivers-options__lead{
@@ -446,14 +448,12 @@ nav a.is-current{
 
 .rivers-cards{
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  justify-items: center; /* centers each card */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .rivers-card{
   width: 100%;
-  max-width: 360px; /* consistent centered card width */
   background: #ffffff;
   border-radius: .75rem;
   overflow: hidden;
