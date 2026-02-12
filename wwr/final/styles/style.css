@@ -363,21 +363,34 @@ nav a.is-current{
   padding-left: 1.2rem;
 }
 
-.rivers-hero__actions{
-  display: flex;
-  gap: .75rem;
-  flex-wrap: wrap;
+/* unify button height */
+.rivers-hero__actions a{
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  height: 52px;            /* fixed same height */
+  padding: 0 24px;         /* horizontal padding only */
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
+/* primary button */
+.book{
+  background: #d9c2a3;
+  color: #000000;
+  border: none;
+}
+
+.book:hover{
+  background: #c4ae8e;
+}
+
+/* secondary button */
 .rivers-hero__secondary{
-  text-decoration: none;
+  background: transparent;
   color: #0b6e99;
-  font-size: 18px;
-  padding: 12px 18px;
-  border-radius: 5px;
   border: 2px solid #0b6e99;
-  display: inline-block;
 }
 
 .rivers-hero__secondary:hover{
