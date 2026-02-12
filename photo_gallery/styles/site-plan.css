@@ -1,34 +1,39 @@
 /* Google Fonts
 Replace spaces with + in the URL and separate families with | */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
 
 :root {
-  /* Color palette
-  Primary:   #0B1320 (deep navy)
-  Secondary: #176B87 (teal blue)
-  Accent 1:  #64CCC5 (mint)
-  Accent 2:  #F7F7F2 (off white) */
-  --primary-color: #0b1320;
-  --secondary-color: #176b87;
-  --accent1-color: #64ccc5;
-  --accent2-color: #f7f7f2;
+  /* Dark Premium Muted Green Palette
+     Primary:   #0B1320 (near black navy, premium base)
+     Secondary: #22312A (deep forest)
+     Accent 1:  #5F7A67 (muted sage)
+     Accent 2:  #ECEFEA (warm light)
+  */
 
-  /* Typography */
-  --heading-font: Poppins, Arial, Helvetica, sans-serif;
-  --paragraph-font: Inter, Helvetica, Arial, sans-serif;
+  --primary-color: #0b1320;
+  --secondary-color: #22312a;
+  --accent1-color: #5f7a67;
+  --accent2-color: #ecefea;
+
+  /* Typography: light-weight sans serif */
+  --heading-font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --paragraph-font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   /* Text and background usage */
   --headline-color-on-white: #0b1320;
-  --headline-color-on-color: #f7f7f2;
+  --headline-color-on-color: #ecefea;
+
   --paragraph-color-on-white: #0b1320;
-  --paragraph-color-on-color: #f7f7f2;
-  --paragraph-background-color: #176b87;
+  --paragraph-color-on-color: #ecefea;
+
+  --paragraph-background-color: #22312a;
 
   /* Navigation */
-  --nav-link-color: #0b1320;
-  --nav-background-color: #64ccc5;
-  --nav-hover-link-color: #f7f7f2;
-  --nav-hover-background-color: #0b1320;
+  --nav-link-color: #ecefea;
+  --nav-background-color: #22312a;
+
+  --nav-hover-link-color: #0b1320;
+  --nav-hover-background-color: #5f7a67;
 }
 
 /* Do not change below here (template structure) */
@@ -39,7 +44,7 @@ body {
   padding: 4em;
   font-size: 18px;
   text-align: center;
-  background: #ffffff;
+  background: #ecefea;
 }
 
 img {
@@ -62,6 +67,13 @@ h6 {
 h2 {
   text-align: center;
 }
+
+h1 { font-weight: 500; letter-spacing: 0.2px; }
+h2 { font-weight: 500; letter-spacing: 0.2px; }
+h3 { font-weight: 500; }
+h4, h5, h6 { font-weight: 400; }
+
+p { font-weight: 400; }
 
 hr {
   height: 3px;
@@ -95,7 +107,9 @@ p {
 }
 
 .colors th {
-  background-color: #999;
+  background-color: #22312a;
+  color: #ecefea;
+  font-weight: 500;
 }
 
 .colors td {
