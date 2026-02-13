@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | White Water Rafting</title>
+    <meta name="description" content="Contact White Water Rafting for bookings, questions, or trip information.">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <style>
+        /* Form Layout */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .contact-container {
+            display: grid;
+            gap: 2rem;
+        }
+
+        form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        form ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        form li + li {
+            margin-top: 1rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #0077b6;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #0077b6;
+            color: #ffffff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #023e8a;
+        }
+
+        /* Feedback message */
+        #feedback {
+            background-color: antiquewhite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            z-index: 1000;
+        }
+
+        .moveDown {
+            margin-top: 3em;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>White Water Rafting</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="trips.html">Trips</a></li>
+            <li><a href="contactus.html" aria-current="page">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <div id="feedback"></div>
+
+    <section class="contact-container">
+        <h2>Contact Us</h2>
+        <p>If you have questions about our rafting trips, pricing, or availability, please complete the form below. We will respond as soon as possible.</p>
+
+        <form method="post">
+            <ul>
+                <li>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="user_name" required>
+                </li>
+
+                <li>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="user_email" required>
+                </li>
+
+                <li>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="user_phone">
+                </li>
+
+                <li>
+                    <label for="trip">Select Trip</label>
+                    <select id="trip" name="trip_type">
+                        <option value="">Select an option</option>
+                        <option value="beginner">Beginner Adventure</option>
+                        <option value="intermediate">Intermediate Rapids</option>
+                        <option value="advanced">Advanced Expedition</option>
+                    </select>
+                </li>
+
+                <li>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="user_message" required></textarea>
+                </li>
+
+                <li>
+                    <button type="submit">Submit Message</button>
+                </li>
+            </ul>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 White Water Rafting | All Rights Reserved</p>
+</footer>
+
+<script>
+    const feedbackElement = document.getElementById('feedback');
+    const formElement = document.forms[0];
+
+    formElement.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        feedbackElement.innerHTML =
+            'Hello ' + formElement.user_name.value +
+            '! Thank you for your message. We will get back with you as soon as possible!';
+
+        feedbackElement.style.display = "block";
+        document.body.classList.toggle('moveDown');
+
+        formElement.reset();
+    });
+</script>
+
+</body>
+</html>
