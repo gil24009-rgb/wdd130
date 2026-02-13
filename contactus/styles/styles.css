@@ -1,0 +1,78 @@
+/* MDN "Your first form" styling, scoped to the contact form */
+.mdn-form-wrap {
+  text-align: center;
+}
+
+/* Center the form on the page (MDN) */
+main#main-content {
+  text-align: center;
+}
+
+/* Form outline (MDN) */
+form.mdn-form {
+  display: inline-block;
+  padding: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 1em;
+  text-align: left; /* Keeps labels and fields aligned nicely */
+}
+
+/* Space between rows (MDN) */
+form.mdn-form p + p {
+  margin-top: 1em;
+}
+
+/* Uniform size and alignment (MDN) */
+form.mdn-form label {
+  display: inline-block;
+  min-width: 90px;
+  text-align: right;
+}
+
+/* Uniform field sizing and font (MDN) */
+form.mdn-form input,
+form.mdn-form textarea {
+  font: 1em sans-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #999999;
+}
+
+/* Focus outline (MDN) */
+form.mdn-form input:focus,
+form.mdn-form textarea:focus {
+  outline-style: solid;
+  outline-color: black;
+}
+
+/* Textarea alignment and height (MDN) */
+form.mdn-form textarea {
+  vertical-align: top;
+  height: 5em;
+}
+
+/* Align button with fields (MDN) */
+form.mdn-form .button {
+  padding-left: 90px;
+}
+
+form.mdn-form button {
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+/* Required assignment: feedback + moveDown */
+#feedback {
+  background-color: antiquewhite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
+  display: none;
+  z-index: 1000;
+}
+
+.moveDown {
+  margin-top: 3em;
+}
