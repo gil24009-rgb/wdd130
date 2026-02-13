@@ -280,18 +280,20 @@ nav a:hover {
 .wf-nav {
   display: flex;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .wf-chip {
   display: inline-block;
-  padding: 0.35rem 0.55rem;
+  padding: 0.28rem 0.48rem;
   border-radius: 999px;
   border: 1px dashed rgba(0, 0, 0, 0.35);
   color: rgba(0, 0, 0, 0.65);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .wf-body {
@@ -424,6 +426,6 @@ nav a:hover {
   }
 
   .wf-gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
