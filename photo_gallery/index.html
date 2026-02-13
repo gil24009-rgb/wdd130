@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Photo Gallery | Home</title>
+    <meta
+      name="description"
+      content="Photo Gallery is a calm, curated space to browse themed photo collections with clear navigation and accessible design."
+    />
+    <meta name="author" content="Sihyeon Gil" />
+    <link rel="icon" href="images/logo.png" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Go to Home">
+          <img
+            src="images/logo.png"
+            alt="Photo Gallery logo"
+            width="140"
+            height="48"
+            loading="eager"
+          />
+          <span class="brand-title">Photo Gallery</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a class="nav-link" href="index.html" aria-current="page">Home</a>
+          <a class="nav-link" href="gallery.html">Gallery</a>
+          <a class="nav-link" href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-media">
+          <img
+            src="images/home-hero.jpg"
+            alt="Minimal gallery wall style photo"
+            width="1200"
+            height="700"
+            loading="eager"
+          />
+        </div>
+
+        <div class="hero-content">
+          <h1 class="page-title">A calm place to explore curated photography</h1>
+          <p>
+            Photo Gallery is designed for visitors who want to enjoy themed photo collections without clutter.
+            The site focuses on clear navigation, comfortable spacing, and readable captions so you can browse quickly
+            or slow down and view details when a photo catches your attention.
+          </p>
+          <p>
+            Explore collections built around atmosphere, light, color, and composition. Each set is intentionally curated
+            to feel cohesive, like a small exhibit where every image supports the overall mood. Visit the Gallery to browse,
+            then use About to learn how themes and captions are organized.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="gallery.html">Browse the Gallery</a>
+            <a class="button button-ghost" href="about.html">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured" aria-label="Featured content">
+        <h2 class="section-title">Featured highlights</h2>
+
+        <div class="featured-grid">
+          <article class="card">
+            <img
+              src="images/home-feature.jpg"
+              alt="Photography prints and editing workflow on a desk"
+              width="900"
+              height="700"
+              loading="lazy"
+            />
+            <h3 class="card-title">Curated sets, not endless scrolling</h3>
+            <p>
+              Collections are small enough to feel intentional and easy to finish. The experience stays focused on the photos,
+              with consistent spacing and simple captions.
+            </p>
+          </article>
+
+          <article class="card">
+            <img
+              src="images/gallery-detail.jpg"
+              alt="Detail focused photography image"
+              width="900"
+              height="700"
+              loading="lazy"
+            />
+            <h3 class="card-title">Clean layout that supports viewing</h3>
+            <p>
+              The layout prioritizes readability and calm visual rhythm so images remain the focal point. Navigation stays simple,
+              and the structure supports both mobile and desktop screens.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© 2026 Photo Gallery</p>
+        <p>
+          <a href="site-plan.html">View Site Plan</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
