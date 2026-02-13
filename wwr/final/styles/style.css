@@ -139,7 +139,7 @@ nav a:hover{ background:#a43312; color:#fff; }
 
 /* Card placements & spacing */
 /* .rivers-card from column lines 2â€“4 and row lines 2â€“3 */
-.rivers-card{
+.rivers-ccard{
   grid-column: 2 / 4;
   grid-row: 2 / 3;
   text-align: center;
@@ -282,11 +282,6 @@ a:focus-visible{ outline:3px solid #E7C24F; outline-offset:2px; }
     font-size: 25px;
   }
 
-  /* Cards stack, become centered and narrower */
-  .rivers-card, .camping-card, .rapids-card {
-    margin: 50px auto;
-    width: 60%;
-  }
 
   /* background band removed for smaller screens */
   #background {
