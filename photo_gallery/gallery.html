@@ -45,115 +45,149 @@
       </header>
 
       <section class="gallery" aria-label="Photo grid">
-        <figure class="photo">
-          <img
-            src="images/gallery-grid.jpg"
-            alt="Grid style image representing a collection overview"
-            width="900"
-            height="700"
-            loading="lazy"
-          />
-          <figcaption>Collection overview</figcaption>
-        </figure>
+  <figure class="photo">
+    <button class="photo-btn" type="button" data-index="0" aria-label="Open image: Collection overview">
+      <img src="images/gallery-grid.jpg" alt="Grid style image representing a collection overview" width="900" height="700" loading="lazy" />
+    </button>
+    <figcaption>Collection overview</figcaption>
+  </figure>
 
-        <figure class="photo">
-          <img
-            src="images/gallery-detail.jpg"
-            alt="Detail focused photograph"
-            width="900"
-            height="700"
-            loading="lazy"
-          />
-          <figcaption>Detail and texture</figcaption>
-        </figure>
+  <figure class="photo">
+    <button class="photo-btn" type="button" data-index="1" aria-label="Open image: Detail and texture">
+      <img src="images/gallery-detail.jpg" alt="Detail focused photograph" width="900" height="700" loading="lazy" />
+    </button>
+    <figcaption>Detail and texture</figcaption>
+  </figure>
 
-        <figure class="photo">
-          <img
-            src="images/home-hero.jpg"
-            alt="Minimal gallery wall style photograph"
-            width="900"
-            height="700"
-            loading="lazy"
-          />
-          <figcaption>Light and space</figcaption>
-        </figure>
+  <figure class="photo">
+    <button class="photo-btn" type="button" data-index="2" aria-label="Open image: Light and space">
+      <img src="images/home-hero.jpg" alt="Minimal gallery wall style photograph" width="900" height="700" loading="lazy" />
+    </button>
+    <figcaption>Light and space</figcaption>
+  </figure>
 
-        <figure class="photo">
-          <img
-            src="images/about-theme.jpg"
-            alt="Theme representative photograph"
-            width="900"
-            height="700"
-            loading="lazy"
-          />
-          <figcaption>Theme study</figcaption>
-        </figure>
+  <figure class="photo">
+    <button class="photo-btn" type="button" data-index="3" aria-label="Open image: Theme study">
+      <img src="images/about-theme.jpg" alt="Theme representative photograph" width="900" height="700" loading="lazy" />
+    </button>
+    <figcaption>Theme study</figcaption>
+  </figure>
 
-        <figure class="photo">
-          <img
-            src="images/about-banner.jpg"
-            alt="Camera workspace photograph"
-            width="900"
-            height="700"
-            loading="lazy"
-          />
-          <figcaption>Creative workspace</figcaption>
-        </figure>
+  <figure class="photo">
+    <button class="photo-btn" type="button" data-index="4" aria-label="Open image: Creative workspace">
+      <img src="images/about-banner.jpg" alt="Camera workspace photograph" width="900" height="700" loading="lazy" />
+    </button>
+    <figcaption>Creative workspace</figcaption>
+  </figure>
 
-        <figure class="photo">
-          <img
-            src="images/home-feature.jpg"
-            alt="Editing workflow photograph"
-            width="900"
-            height="700"
-            loading="lazy"
-          />
-          <figcaption>Process and prints</figcaption>
-        </figure>
-      </section>
+  <figure class="photo">
+    <button class="photo-btn" type="button" data-index="5" aria-label="Open image: Process and prints">
+      <img src="images/home-feature.jpg" alt="Editing workflow photograph" width="900" height="700" loading="lazy" />
+    </button>
+    <figcaption>Process and prints</figcaption>
+  </figure>
+</section>
 
-      <section class="component-demo" aria-label="Component demo: Image overlay fade">
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image viewer">
+  <div class="viewer-backdrop" data-close="true"></div>
+
+  <div class="viewer-panel" role="document">
+    <button class="viewer-close" type="button" data-close="true" aria-label="Close viewer">×</button>
+
+    <figure class="viewer-figure">
+      <img class="viewer-img" id="viewerImg" src="" alt="" />
+      <figcaption class="viewer-caption" id="viewerCaption"></figcaption>
+    </figure>
+
+    <div class="viewer-controls" aria-label="Viewer controls">
+      <button class="viewer-btn" type="button" id="prevBtn" aria-label="Previous image">Previous</button>
+      <button class="viewer-btn" type="button" id="nextBtn" aria-label="Next image">Next</button>
+    </div>
+  </div>
+</div>
+
+      <section class="component-demo" aria-label="Featured collections">
   <header class="page-header">
-    <h2 class="section-title">Hover Overlay Component</h2>
+    <h2 class="section-title">Featured collections</h2>
     <p>
-      Hover over each image to reveal a short caption. This section implements the W3Schools Image Overlay Fade component
-      using customized content and our project images.
+      A focused set of curated themes designed to highlight composition, light, and texture.
+      Each collection is intentionally small to support calm browsing and fast scanning.
     </p>
   </header>
 
-  <div class="component-grid">
-    <div class="container">
-      <img src="images/gallery-detail.jpg" alt="Detail photograph" class="image" />
-      <div class="overlay">
-        <div class="text">Detail and texture</div>
+  <div class="component-grid" role="list">
+    <article class="media-card" role="listitem">
+      <div class="container">
+        <img src="images/gallery-detail.jpg" alt="Detail photograph" class="image" />
+        <div class="overlay">
+          <div class="text">Detail and texture</div>
+        </div>
       </div>
-    </div>
+      <div class="media-caption">
+        <h3 class="media-title">Detail and texture</h3>
+        <p class="media-desc">
+          Close-range compositions that emphasize surface, grain, and contrast. Designed for viewers who prefer subtle visual cues over loud color.
+        </p>
+      </div>
+    </article>
 
-    <div class="container">
-      <img src="images/home-hero.jpg" alt="Minimal gallery wall photograph" class="image" />
-      <div class="overlay">
-        <div class="text">Light and space</div>
+    <article class="media-card" role="listitem">
+      <div class="container">
+        <img src="images/home-hero.jpg" alt="Minimal gallery wall photograph" class="image" />
+        <div class="overlay">
+          <div class="text">Light and space</div>
+        </div>
       </div>
-    </div>
+      <div class="media-caption">
+        <h3 class="media-title">Light and space</h3>
+        <p class="media-desc">
+          Minimal framing and negative space to keep attention on lighting direction. Built for calm viewing and consistent rhythm across the grid.
+        </p>
+      </div>
+    </article>
 
-    <div class="container">
-      <img src="images/about-theme.jpg" alt="Theme representative photograph" class="image" />
-      <div class="overlay">
-        <div class="text">Theme study</div>
+    <article class="media-card" role="listitem">
+      <div class="container">
+        <img src="images/about-theme.jpg" alt="Theme representative photograph" class="image" />
+        <div class="overlay">
+          <div class="text">Theme study</div>
+        </div>
       </div>
-    </div>
+      <div class="media-caption">
+        <h3 class="media-title">Theme study</h3>
+        <p class="media-desc">
+          A collection organized by a single guiding rule such as palette, geometry, or atmosphere. Captions remain short to support fast browsing.
+        </p>
+      </div>
+    </article>
   </div>
 </section>
-
 
       <section class="note" aria-label="Caption note">
         <h2 class="section-title">Captions and spacing</h2>
         <p>
-          The layout stays predictable to reduce visual noise. Spacing remains consistent so the grid feels clean and easy to scan.
-          Captions are short and descriptive, supporting quick browsing while still offering context.
+          The layout stays predictable to reduce visual noise. 
         </p>
       </section>
     </main>
+
+    <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image viewer">
+  <div class="viewer-backdrop" data-close="true"></div>
+
+  <div class="viewer-panel" role="document">
+    <button class="viewer-close" type="button" data-close="true" aria-label="Close viewer">×</button>
+
+    <figure class="viewer-figure">
+      <img class="viewer-img" id="viewerImg" src="" alt="" />
+      <figcaption class="viewer-caption" id="viewerCaption"></figcaption>
+    </figure>
+
+    <div class="viewer-controls" aria-label="Viewer controls">
+      <button class="viewer-btn" type="button" id="prevBtn" aria-label="Previous image">Previous</button>
+      <button class="viewer-btn" type="button" id="nextBtn" aria-label="Next image">Next</button>
+    </div>
+  </div>
+</div>
 
     <footer class="site-footer">
       <div class="footer-inner">
@@ -163,5 +197,96 @@
         </p>
       </div>
     </footer>
+    <script>
+  (function () {
+    const viewer = document.getElementById("viewer");
+    const viewerImg = document.getElementById("viewerImg");
+    const viewerCaption = document.getElementById("viewerCaption");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const photoButtons = Array.from(document.querySelectorAll(".photo-btn"));
+    const items = photoButtons.map((btn) => {
+      const img = btn.querySelector("img");
+      const figure = btn.closest("figure");
+      const caption = figure ? figure.querySelector("figcaption") : null;
+      return {
+        src: img ? img.getAttribute("src") : "",
+        alt: img ? img.getAttribute("alt") : "",
+        caption: caption ? caption.textContent.trim() : "",
+      };
+    });
+
+    let currentIndex = 0;
+    let lastFocused = null;
+
+    function openViewer(index) {
+      if (!items.length) return;
+
+      currentIndex = (index + items.length) % items.length;
+      const item = items[currentIndex];
+
+      lastFocused = document.activeElement;
+
+      viewerImg.src = item.src;
+      viewerImg.alt = item.alt || item.caption || "Gallery image";
+      viewerCaption.textContent = item.caption;
+
+      viewer.setAttribute("aria-hidden", "false");
+      viewer.classList.add("is-open");
+      document.body.classList.add("no-scroll");
+
+      nextBtn.focus();
+    }
+
+    function closeViewer() {
+      viewer.setAttribute("aria-hidden", "true");
+      viewer.classList.remove("is-open");
+      document.body.classList.remove("no-scroll");
+
+      viewerImg.src = "";
+      viewerImg.alt = "";
+      viewerCaption.textContent = "";
+
+      if (lastFocused && typeof lastFocused.focus === "function") {
+        lastFocused.focus();
+      }
+    }
+
+    function showNext() {
+      openViewer(currentIndex + 1);
+    }
+
+    function showPrev() {
+      openViewer(currentIndex - 1);
+    }
+
+    photoButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const index = Number(btn.dataset.index || "0");
+        openViewer(index);
+      });
+    });
+
+    viewer.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target && target.dataset && target.dataset.close === "true") {
+        closeViewer();
+      }
+    });
+
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
+
+    document.addEventListener("keydown", (e) => {
+      if (!viewer.classList.contains("is-open")) return;
+
+      if (e.key === "Escape") closeViewer();
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "ArrowLeft") showPrev();
+    });
+  })();
+</script>
+
   </body>
 </html>

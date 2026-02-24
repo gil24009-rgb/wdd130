@@ -520,3 +520,219 @@ a:hover {
     height: 280px;
   }
 }
+
+/* ===== Featured collections (hover overlay cards) ===== */
+
+.media-card {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.media-caption {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: 0 10px 24px rgba(11, 19, 32, 0.06);
+  text-align: left;
+}
+
+.media-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.media-desc {
+  margin: 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+/* Increase spacing between image card and caption card */
+.container {
+  margin-bottom: 0.25rem;
+}
+
+/* ===== Gallery modal viewer ===== */
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.photo-btn {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.photo-btn:focus-visible {
+  outline: 3px solid rgba(95, 122, 103, 0.45);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.viewer.is-open {
+  display: grid;
+  place-items: center;
+}
+
+.viewer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 19, 32, 0.72);
+}
+
+.viewer-panel {
+  position: relative;
+  width: min(980px, calc(100% - 2rem));
+  background: var(--surface);
+  border: 1px solid rgba(236, 239, 234, 0.18);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(11, 19, 32, 0.35);
+  padding: 1rem;
+  z-index: 1;
+}
+
+.viewer-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(236, 239, 234, 0.9);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.viewer-figure {
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.viewer-img {
+  width: 100%;
+  height: min(66vh, 620px);
+  object-fit: contain;
+  background: rgba(11, 19, 32, 0.04);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.viewer-caption {
+  color: var(--muted);
+  text-align: left;
+  padding: 0 0.25rem;
+}
+
+.viewer-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.viewer-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 49, 42, 0.35);
+  background: var(--primary);
+  color: var(--bg);
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.viewer-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(34, 49, 42, 0.92);
+  border-color: rgba(34, 49, 42, 0.55);
+}
+
+.viewer-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 560px) {
+  .viewer-controls {
+    flex-direction: column;
+  }
+}
+
+/* ===== About hover dropdown cards ===== */
+
+.about-columns {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Fix both sides to equal height on desktop: image height == stack height */
+@media (min-width: 900px) {
+  .about > .about-media:first-of-type img {
+    height: 560px;
+    object-fit: cover;
+  }
+
+  .about > .about-columns {
+    height: 560px;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+}
+
+/* Only show titles by default */
+.panel .panel-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 220ms ease, opacity 200ms ease, transform 220ms ease;
+  transform: translateY(-6px);
+}
+
+/* Hover or keyboard focus reveals dropdown content */
+.panel:hover .panel-body,
+.panel:focus-within .panel-body {
+  max-height: 220px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.panel .section-title {
+  margin: 0;
+}
+
+/* Add a small affordance without extra text */
+.panel .section-title::after {
+  content: "▾";
+  margin-left: 0.5rem;
+  color: rgba(11, 19, 32, 0.55);
+  font-size: 0.95rem;
+}
+
+/* Make panels fill the column height evenly when fixed height is active */
+@media (min-width: 900px) {
+  .panel {
+    height: 100%;
+  }
+}
