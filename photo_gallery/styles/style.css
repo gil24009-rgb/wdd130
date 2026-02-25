@@ -736,3 +736,181 @@ a:hover {
     height: 100%;
   }
 }
+
+/* ===== Home hero alignment fixes ===== */
+
+.hero {
+  margin-bottom: var(--space-6);
+}
+
+.hero-title {
+  margin: 0 0 var(--space-4);
+  text-align: center;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+.hero-media {
+  height: 100%;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 420px;
+}
+
+.hero-text p {
+  margin: 0 0 var(--space-3);
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.hero-text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* ===== Modal buttons default outline, dark on hover/active ===== */
+
+.viewer-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 49, 42, 0.35);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.viewer-btn:hover {
+  transform: translateY(-1px);
+  background: var(--primary);
+  border-color: rgba(34, 49, 42, 0.55);
+  color: var(--bg);
+}
+
+.viewer-btn:active {
+  transform: translateY(0);
+  background: rgba(34, 49, 42, 0.92);
+  border-color: rgba(34, 49, 42, 0.65);
+  color: var(--bg);
+}
+
+/* ===== About dropdown: collapsed card equals title height, expands on hover ===== */
+
+/* Desktop layout: make image height match the total height of the right column automatically */
+@media (min-width: 900px) {
+  .about {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: var(--space-5);
+    align-items: stretch;
+  }
+
+  .about > .about-media:first-of-type {
+    height: 100%;
+  }
+
+  .about > .about-media:first-of-type img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .about > .about-columns {
+    height: 100%;
+    align-content: start;
+  }
+
+  .about > .about-media:last-of-type,
+  .about .note {
+    grid-column: 1 / -1;
+  }
+}
+
+.about-columns {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* Collapsed: title-only size */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(11, 19, 32, 0.06);
+  padding: 0.9rem 1rem;
+  text-align: left;
+  overflow: hidden;
+  transition: padding 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.panel .section-title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.panel .section-title::after {
+  content: "▾";
+  margin-left: 0.5rem;
+  color: rgba(11, 19, 32, 0.55);
+  font-size: 0.95rem;
+}
+
+/* Body hidden in collapsed state */
+.panel-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-6px);
+  transition: max-height 240ms ease, opacity 200ms ease, transform 240ms ease;
+}
+
+.panel-body p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 75ch;
+}
+
+/* Expanded on hover/focus: card grows and body becomes visible */
+.panel:hover,
+.panel:focus-within {
+  padding: 1rem 1rem 1.15rem;
+  box-shadow: 0 16px 34px rgba(11, 19, 32, 0.10);
+  transform: translateY(-1px);
+}
+
+.panel:hover .panel-body,
+.panel:focus-within .panel-body {
+  max-height: 220px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 0.7rem;
+}
