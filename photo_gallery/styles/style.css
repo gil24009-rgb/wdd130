@@ -820,6 +820,7 @@ a:hover {
 }
 
 .panel .section-title::after {
+    content: " ";
   margin-left: 0.5rem;
   color: rgba(11, 19, 32, 0.55);
   font-size: 0.95rem;
