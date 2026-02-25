@@ -150,24 +150,44 @@ a:hover {
 }
 
 .hero {
+  margin-bottom: var(--space-6);
+}
+
+.hero-title {
+  margin: 0 0 var(--space-4);
+  text-align: center;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.hero-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-5);
-  align-items: center;
-  margin-bottom: var(--space-6);
+  align-items: stretch;
+}
+
+.hero-media {
+  height: 100%;
 }
 
 .hero-media img {
   width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
 
-.hero-content p {
-  margin: 0 0 var(--space-3);
-  color: var(--muted);
-  max-width: 60ch;
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 420px;
 }
 
 .hero-actions {
@@ -176,6 +196,7 @@ a:hover {
   flex-wrap: wrap;
   margin-top: var(--space-3);
 }
+
 
 .button {
   display: inline-flex;
@@ -948,49 +969,3 @@ a:hover {
   }
 }
 
-/* ===== Hard fix: force Home hero title to top-center above image+caption ===== */
-/* Place this block at the VERY END of styles/style.css */
-
-.hero {
-  /* Ensure title sits above the grid and doesn't join the two-column layout */
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  gap: var(--space-4) !important;
-}
-
-/* If your H1 uses .hero-title OR .page-title OR plain h1, center it */
-.hero > .hero-title,
-.hero > .page-title,
-.hero > h1 {
-  width: 100% !important;
-  text-align: center !important;
-  margin: 0 0 var(--space-4) !important;
-  justify-self: center !important;
-  align-self: stretch !important;
-}
-
-/* If the title is accidentally inside the grid, still force it to span full width */
-.hero-grid > .hero-title,
-.hero-grid > .page-title,
-.hero-grid > h1 {
-  grid-column: 1 / -1 !important;
-  justify-self: center !important;
-  text-align: center !important;
-  width: 100% !important;
-  margin: 0 0 var(--space-4) !important;
-}
-
-/* Keep the image+caption layout as the two-column grid */
-.hero-grid {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: var(--space-5) !important;
-  align-items: stretch !important;
-}
-
-@media (min-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1.1fr 0.9fr !important;
-  }
-}
