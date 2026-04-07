@@ -811,7 +811,7 @@ a:hover {
   padding: 0.9rem 1rem;
   text-align: left;
   overflow: hidden;
-  transition: padding 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  transition: padding 280ms ease, box-shadow 280ms ease, transform 280ms ease;
 }
 
 .panel .section-title {
@@ -832,8 +832,16 @@ a:hover {
   opacity: 0;
   overflow: hidden;
   transform: translateY(-6px);
-  transition: max-height 240ms ease, opacity 200ms ease, transform 240ms ease;
+
+  /* 핵심: 느린 반응 + delay */
+  transition:
+    max-height 400ms ease,
+    opacity 350ms ease,
+    transform 400ms ease;
+
+  transition-delay: 120ms;
 }
+
 
 .panel-body p {
   margin: 0;
@@ -846,15 +854,18 @@ a:hover {
 .panel:focus-within {
   padding: 1rem 1rem 1.15rem;
   box-shadow: 0 16px 34px rgba(11, 19, 32, 0.10);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .panel:hover .panel-body,
 .panel:focus-within .panel-body {
-  max-height: 220px;
+  max-height: 240px;
   opacity: 1;
   transform: translateY(0);
   margin-top: 0.7rem;
+
+  /* 펼쳐질 때는 더 부드럽게 */
+  transition-delay: 180ms;
 }
 
 /* ===== Hero title alignment fix ===== */
