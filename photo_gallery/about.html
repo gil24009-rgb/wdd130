@@ -50,6 +50,7 @@
             id="aboutMainImage"
             src="images/about-banner.jpg"
             alt="Minimal camera workspace banner"
+            style="transition: opacity 0.5s ease;"
             width="1200"
             height="800"
             loading="lazy"
@@ -118,26 +119,38 @@
       </div>
     </footer>
 
-    <script>
-  (function () {
-    const panels = document.querySelectorAll(".panel");
-    const mainImage = document.getElementById("aboutMainImage");
+ <script>
+(function () {
+  const panels = document.querySelectorAll(".panel");
+  const mainImage = document.getElementById("aboutMainImage");
 
-    const defaultSrc = mainImage.getAttribute("src");
+  const defaultSrc = mainImage.getAttribute("src");
 
-    panels.forEach((panel) => {
-      panel.addEventListener("mouseenter", () => {
-        const newSrc = panel.dataset.image;
-        if (newSrc) {
+  panels.forEach((panel) => {
+    panel.addEventListener("mouseenter", () => {
+      const newSrc = panel.dataset.image;
+      if (newSrc) {
+        // 1. 이미지 숨기기 (opacity 0)
+        mainImage.style.opacity = 0;
+
+        // 2. opacity 트랜지션 후 src 변경
+        setTimeout(() => {
           mainImage.src = newSrc;
-        }
-      });
-
-      panel.addEventListener("mouseleave", () => {
-        mainImage.src = defaultSrc;
-      });
+          // 3. 새 이미지 나타나게 (opacity 1)
+          mainImage.style.opacity = 1;
+        }, 250); // transition 시간의 절반 정도로 설정
+      }
     });
-  })();
+
+    panel.addEventListener("mouseleave", () => {
+      mainImage.style.opacity = 0;
+      setTimeout(() => {
+        mainImage.src = defaultSrc;
+        mainImage.style.opacity = 1;
+      }, 250);
+    });
+  });
+})();
 </script>
 
   </body>
